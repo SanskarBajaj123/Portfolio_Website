@@ -1,4 +1,4 @@
-/ components/Navbar.js
+
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-scroll';
 import './Navbar.css';
@@ -24,7 +24,7 @@ const Navbar = () => {
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="navbar-container">
         <Link to="hero" className="navbar-logo" smooth={true} duration={500}>
-          <span className="logo-text">SB</span>
+          <span className="logo-text">Sanskar V. Bajaj</span>
         </Link>
         
         <div className={`menu-icon ${menuOpen ? 'active' : ''}`} onClick={() => setMenuOpen(!menuOpen)}>

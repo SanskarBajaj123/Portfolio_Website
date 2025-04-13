@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-scroll';
 import { motion } from 'framer-motion';
 import './Hero.css';
-import ProfileImage from '../assets/profile.jpg'; // Your photo goes here
+import ProfileImage from '../assets/images/profile.jpg';
 
 const Hero = () => {
   return (
@@ -14,7 +14,7 @@ const Hero = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1>Hello, I'm <span className="highlight">Sanskar Bajaj</span></h1>
+          <h1>Hello, I'm <span className="highlight">Sanskar V. Bajaj</span></h1>
           <h2>Computer Science Student & ML Enthusiast</h2>
           <p>I'm a tech enthusiast currently pursuing B.Tech in Computer Science at IIIT Nagpur with a passion for machine learning, deep learning, and web development.</p>
           <div className="hero-buttons">
