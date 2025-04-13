@@ -9,6 +9,7 @@
     padding-top: 100px;
     overflow: hidden;
     margin-top: 80px;
+    width: 100%;
   }
   
   .hero::before {
@@ -76,7 +77,6 @@
   }
   
   .btn {
-    white-space: nowrap;
     padding: 12px 28px;
     border-radius: 50px;
     font-weight: 500;
@@ -243,6 +243,7 @@
   @media (max-width: 900px) {
     .hero{
       height: 130vh;
+      width: 100%;
     }
     .hero-content {
       flex-direction: column;
@@ -274,6 +275,14 @@
     }
     .social-icons{
       justify-content: center;
+    }
+  }
+  @media(max-width: 600px){
+    .btn{
+      padding: 8px 15px;
+    }
+    .hero{
+      width: 100%;
     }
   }
 
