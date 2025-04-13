@@ -27,7 +27,7 @@ const Hero = () => {
               View Projects
             </Link>
             <a href="https://drive.google.com/file/d/1ErmntrRB-Sn92rRVlRXxliqebPljjxJq/view?usp=drive_link" download className="btn secondary-btn">
-              Download CV
+              View CV
             </a>
           </div>
 

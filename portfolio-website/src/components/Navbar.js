@@ -19,7 +19,7 @@ const Navbar = () => {
   
 
   return (
-    <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+    <nav className={`navbar ${'scrolled'}`}>
       <div className="navbar-container">
         <Link to="hero" className="navbar-logo" smooth duration={500}>
           <span className="logo-text">Sanskar V. Bajaj</span>
@@ -37,9 +37,7 @@ const Navbar = () => {
               </Link>
             </li>
           ))}
-          <li className="nav-item">
-            <a href="https://drive.google.com/file/d/1ErmntrRB-Sn92rRVlRXxliqebPljjxJq/view?usp=drive_link" className="nav-link" download>Download CV</a>
-          </li>
+          
         </ul>
 
         
