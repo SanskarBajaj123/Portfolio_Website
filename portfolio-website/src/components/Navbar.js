@@ -38,7 +38,7 @@ const Navbar = () => {
             </li>
           ))}
           <li className="nav-item">
-            <a href="/resume.pdf" className="nav-link" download>Download CV</a>
+            <a href="https://drive.google.com/file/d/1ErmntrRB-Sn92rRVlRXxliqebPljjxJq/view?usp=drive_link" className="nav-link" download>Download CV</a>
           </li>
         </ul>
 

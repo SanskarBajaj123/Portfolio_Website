@@ -26,15 +26,15 @@ const Hero = () => {
             <Link to="projects" className="btn secondary-btn" smooth duration={800}>
               View Projects
             </Link>
-            <a href="/resume.pdf" download className="btn secondary-btn">
+            <a href="https://drive.google.com/file/d/1ErmntrRB-Sn92rRVlRXxliqebPljjxJq/view?usp=drive_link" download className="btn secondary-btn">
               Download CV
             </a>
           </div>
 
           <div className="social-icons">
-            <a href="https://github.com/yourusername" target="_blank" rel="noreferrer"><FaGithub /></a>
-            <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noreferrer"><FaLinkedin /></a>
-            <a href="https://instagram.com/yourusername" target="_blank" rel="noreferrer"><FaInstagram /></a>
+            <a href="https://github.com/SanskarBajaj123" target="_blank" rel="noreferrer"><FaGithub /></a>
+            <a href="https://linkedin.com/in/sanskar-bajaj8377" target="_blank" rel="noreferrer"><FaLinkedin /></a>
+            <a href="https://instagram.com/__bajaj_sanskar__" target="_blank" rel="noreferrer"><FaInstagram /></a>
           </div>
         </motion.div>
 
