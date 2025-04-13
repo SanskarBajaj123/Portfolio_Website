@@ -13,8 +13,8 @@ const Projects = () => {
       description: "Designed and deployed an Emotion Detection Web App using a BiLSTM neural network, achieving 0.9130 test accuracy with stratified k-fold cross-validation on a labeled Twitter dataset. Built a complete NLP preprocessing pipeline with NLTK and TensorFlow/Keras, including tokenization. Compared BiLSTM model with Random Forest (0.8735) and XGBoost (0.8805), demonstrating superior performance across precision, recall, and F1-score. Integrated the model with a Flask API backend and a React frontend for real-time user emotion prediction.",
       technologies: ["BiLSTM Model", "TensorFlow", "Keras", "Flask", "ReactJs", "Render"],
       links: [
-        { name: "GitHub", url: "#" },
-        { name: "Live Demo", url: "#" }
+        { name: "GitHub", url: "https://github.com/SanskarBajaj123/Emotion_Analyzer" },
+        { name: "Live Demo", url: "https://emotion-analyzer-site.onrender.com/" }
       ]
     },
     {
@@ -22,7 +22,7 @@ const Projects = () => {
       description: "Collaborated on a group project to develop a web-based College Management System with role-based authentication for Admin, Faculty, and Student portals. Implemented secure login and personalized dashboards using Django's built-in authentication. Admins managed departments and courses, faculty tracked academic performance, and students accessed their records and certificate applications. Developed core modules for managing academic records, fee payments, library resources, grievances, and feedback collection.",
       technologies: ["HTML/CSS", "JavaScript", "Django", "SQLite", "Bootstrap"],
       links: [
-        { name: "GitHub", url: "#" }
+        { name: "GitHub", url: "https://github.com/SanskarBajaj123/Student_management" }
       ]
     },
     {
@@ -30,42 +30,7 @@ const Projects = () => {
       description: "Developed a comprehensive election management application using C language, handling electoral processes for over 200 voters and 20 candidates efficiently. Implemented distinct Admin and Student panels with secure authentication protocols, ensuring role-based access control and maintaining data integrity throughout the election cycle. Designed and utilized data structures such as structs and arrays to effectively manage and store candidate information, voter credentials, and vote counts.",
       technologies: ["C", "Data Structures"],
       links: [
-        { name: "GitHub", url: "#" }
-      ]
-    },
-    {
-      title: "Portfolio Website",
-      description: "Designed and developed a responsive personal portfolio website using modern web technologies. Implemented interactive components and animations to create an engaging user experience. The website showcases projects, skills, and professional experience in a clean and intuitive interface.",
-      technologies: ["React", "Framer Motion", "CSS", "Responsive Design"],
-      links: [
-        { name: "GitHub", url: "#" },
-        { name: "Live Demo", url: "#" }
-      ]
-    },
-    {
-      title: "Weather Forecast App",
-      description: "Created a weather forecast application that provides real-time weather data for any location. Integrated with a weather API to fetch accurate weather information and display it in a user-friendly interface. Implemented features such as current conditions, daily forecasts, and location search.",
-      technologies: ["JavaScript", "API Integration", "HTML/CSS", "React"],
-      links: [
-        { name: "GitHub", url: "#" },
-        { name: "Live Demo", url: "#" }
-      ]
-    },
-    {
-      title: "E-Commerce Platform",
-      description: "Built a full-featured e-commerce platform with product listings, shopping cart functionality, and secure checkout process. Implemented user authentication, product search and filtering, and order management. Utilized responsive design principles to ensure optimal viewing across various devices.",
-      technologies: ["React", "Node.js", "MongoDB", "Express", "Payment Gateway"],
-      links: [
-        { name: "GitHub", url: "#" }
-      ]
-    },
-    {
-      title: "Task Management System",
-      description: "Developed a task management application to help users organize and prioritize their daily activities. Implemented features such as task creation, categorization, deadline setting, and progress tracking. The system includes notification reminders and visual progress indicators.",
-      technologies: ["React", "Redux", "Local Storage", "CSS"],
-      links: [
-        { name: "GitHub", url: "#" },
-        { name: "Live Demo", url: "#" }
+        { name: "GitHub", url: "https://github.com/SanskarBajaj123/Mini-Election-Portal" }
       ]
     }
   ];
