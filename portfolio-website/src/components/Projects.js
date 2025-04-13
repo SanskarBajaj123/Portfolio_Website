@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import './Projects.css';
 
 const Projects = () => {
   const [activeProject, setActiveProject] = useState(0);
+  const [autoScroll, setAutoScroll] = useState(true);
+  const carouselRef = useRef(null);
   
   const projects = [
     {
@@ -30,8 +32,84 @@ const Projects = () => {
       links: [
         { name: "GitHub", url: "#" }
       ]
+    },
+    {
+      title: "Portfolio Website",
+      description: "Designed and developed a responsive personal portfolio website using modern web technologies. Implemented interactive components and animations to create an engaging user experience. The website showcases projects, skills, and professional experience in a clean and intuitive interface.",
+      technologies: ["React", "Framer Motion", "CSS", "Responsive Design"],
+      links: [
+        { name: "GitHub", url: "#" },
+        { name: "Live Demo", url: "#" }
+      ]
+    },
+    {
+      title: "Weather Forecast App",
+      description: "Created a weather forecast application that provides real-time weather data for any location. Integrated with a weather API to fetch accurate weather information and display it in a user-friendly interface. Implemented features such as current conditions, daily forecasts, and location search.",
+      technologies: ["JavaScript", "API Integration", "HTML/CSS", "React"],
+      links: [
+        { name: "GitHub", url: "#" },
+        { name: "Live Demo", url: "#" }
+      ]
+    },
+    {
+      title: "E-Commerce Platform",
+      description: "Built a full-featured e-commerce platform with product listings, shopping cart functionality, and secure checkout process. Implemented user authentication, product search and filtering, and order management. Utilized responsive design principles to ensure optimal viewing across various devices.",
+      technologies: ["React", "Node.js", "MongoDB", "Express", "Payment Gateway"],
+      links: [
+        { name: "GitHub", url: "#" }
+      ]
+    },
+    {
+      title: "Task Management System",
+      description: "Developed a task management application to help users organize and prioritize their daily activities. Implemented features such as task creation, categorization, deadline setting, and progress tracking. The system includes notification reminders and visual progress indicators.",
+      technologies: ["React", "Redux", "Local Storage", "CSS"],
+      links: [
+        { name: "GitHub", url: "#" },
+        { name: "Live Demo", url: "#" }
+      ]
     }
   ];
+
+  // Get visible projects for circular effect
+  const getVisibleProjects = () => {
+    // Create a circular array of projects
+    return [...projects, ...projects.slice(0, 3)];
+  };
+
+  // Auto-scroll functionality
+  useEffect(() => {
+    let interval;
+    if (autoScroll) {
+      interval = setInterval(() => {
+        setActiveProject((prev) => (prev + 1) % projects.length);
+      }, 5000);
+    }
+    
+    return () => clearInterval(interval);
+  }, [autoScroll, projects.length]);
+
+  // Shift carousel position when active project changes
+  useEffect(() => {
+    if (carouselRef.current) {
+      // Calculate position to center active project
+      const activeElement = carouselRef.current.children[activeProject];
+      if (activeElement) {
+        const scrollPosition = activeElement.offsetLeft - (carouselRef.current.offsetWidth / 2) + (activeElement.offsetWidth / 2);
+        carouselRef.current.scroll({
+          left: scrollPosition,
+          behavior: 'smooth'
+        });
+      }
+    }
+  }, [activeProject]);
+
+  // Pause auto-scroll when user interacts
+  const handleTabClick = (index) => {
+    setActiveProject(index % projects.length);
+    setAutoScroll(false);
+    // Resume auto-scroll after 30 seconds of inactivity
+    setTimeout(() => setAutoScroll(true), 30000);
+  };
 
   return (
     <section id="projects" className="projects">
@@ -42,28 +120,31 @@ const Projects = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
       >
-        <h2>Projects</h2>
+        <h2>PROJECTS</h2>
         <div className="underline"></div>
       </motion.div>
       
       <div className="projects-container">
-        <motion.div 
-          className="project-tabs"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
-          {projects.map((project, index) => (
-            <div 
-              key={index} 
-              className={`project-tab ${activeProject === index ? 'active' : ''}`}
-              onClick={() => setActiveProject(index)}
-            >
-              {project.title}
-            </div>
-          ))}
-        </motion.div>
+        <div className="carousel-wrapper">
+          <motion.div 
+            className="project-carousel"
+            ref={carouselRef}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            {getVisibleProjects().map((project, index) => (
+              <div 
+                key={index} 
+                className={`project-tab ${activeProject === index % projects.length ? 'active' : ''}`}
+                onClick={() => handleTabClick(index)}
+              >
+                {project.title}
+              </div>
+            ))}
+          </motion.div>
+        </div>
         
         <motion.div 
           className="project-content"

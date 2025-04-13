@@ -1,6 +1,6 @@
 .footer {
     background-color: #2a2f4f;
-    padding: 50px 5%;
+    padding: 3rem 5%;
     color: white;
   }
   
@@ -21,12 +21,14 @@
   }
   
   .footer-logo span {
-    font-size: 2rem;
+    color:white;
+    text-decoration: none;
+    cursor: pointer;
     font-weight: 700;
-    padding: 10px 15px;
-    background-color: #e94560;
-    border-radius: 10px;
-    color: white;
+    font-size: 2rem;
+    background: linear-gradient(90deg, #fff, #ffd700);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
   
   .footer p {
@@ -50,6 +52,7 @@
     color: white;
     font-size: 1.1rem;
     transition: all 0.3s ease;
+    text-decoration: none;
   }
   
   .footer-links a:hover {
@@ -62,9 +65,10 @@
       flex-direction: column;
       text-align: center;
     }
-    
+  
     .footer-links {
       margin-top: 1rem;
       justify-content: center;
     }
   }
+  

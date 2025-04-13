@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-scroll';
 import { motion } from 'framer-motion';
+import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa';
 import './Hero.css';
 import ProfileImage from '../assets/images/profile.jpg';
 
@@ -16,16 +17,27 @@ const Hero = () => {
         >
           <h1>Hello, I'm <span className="highlight">Sanskar V. Bajaj</span></h1>
           <h2>Computer Science Student & ML Enthusiast</h2>
-          <p>I'm a tech enthusiast currently pursuing B.Tech in Computer Science at IIIT Nagpur with a passion for machine learning, deep learning, and web development.</p>
+          <p>I’m passionate about building intelligent systems, crafting web solutions, and creating a positive impact through technology.</p>
+          
           <div className="hero-buttons">
-            <Link to="contact" className="btn primary-btn" smooth={true} duration={800}>
+            <Link to="contact" className="btn primary-btn" smooth duration={800}>
               Get In Touch
             </Link>
-            <Link to="projects" className="btn secondary-btn" smooth={true} duration={800}>
+            <Link to="projects" className="btn secondary-btn" smooth duration={800}>
               View Projects
             </Link>
+            <a href="/resume.pdf" download className="btn secondary-btn">
+              Download CV
+            </a>
+          </div>
+
+          <div className="social-icons">
+            <a href="https://github.com/yourusername" target="_blank" rel="noreferrer"><FaGithub /></a>
+            <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noreferrer"><FaLinkedin /></a>
+            <a href="https://instagram.com/yourusername" target="_blank" rel="noreferrer"><FaInstagram /></a>
           </div>
         </motion.div>
+
         <motion.div 
           className="hero-image"
           initial={{ opacity: 0, scale: 0.8 }}
@@ -37,11 +49,10 @@ const Hero = () => {
           </div>
         </motion.div>
       </div>
+
       <div className="scroll-indicator">
-        <Link to="about" smooth={true} duration={500}>
-          <div className="mouse">
-            <div className="wheel"></div>
-          </div>
+        <Link to="about" smooth duration={500}>
+          <div className="mouse"><div className="wheel"></div></div>
         </Link>
       </div>
     </section>

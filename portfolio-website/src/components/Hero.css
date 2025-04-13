@@ -6,7 +6,7 @@
     flex-direction: column;
     justify-content: center;
     position: relative;
-    padding-top: 80px;
+    padding-top: 100px;
     overflow: hidden;
   }
   
@@ -257,3 +257,20 @@
       height: 250px;
     }
   }
+  .social-icons {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .social-icons a {
+    color: #ffd700;
+    font-size: 1.5rem;
+    transition: transform 0.3s;
+  }
+  
+  .social-icons a:hover {
+    transform: scale(1.2);
+    color: #e94560;
+  }
+  
