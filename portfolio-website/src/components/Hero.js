@@ -3,7 +3,7 @@ import { Link } from 'react-scroll';
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa';
 import './Hero.css';
-import ProfileImage from '../assets/images/profile.jpg';
+import  ProfileImage from '../assets/images/profile.jpg';
 
 const Hero = () => {
   return (
