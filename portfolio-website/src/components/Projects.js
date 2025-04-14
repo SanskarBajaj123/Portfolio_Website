@@ -18,6 +18,16 @@ const Projects = () => {
       ]
     },
     {
+      title: "Sentiment Analysis of Tweets",
+      description: "Built and deployed a Sentiment Analysis Web App using traditional machine learning models including Logistic Regression and Naive Bayes. Implemented a robust NLP pipeline using NLTK for preprocessing tasks such as stemming, stopword removal, and vectorization with TF-IDF. Developed an intuitive frontend using HTML, CSS, and JavaScript integrated with a Flask backend for real-time tweet sentiment classification. Achieved high accuracy and performance across multiple test datasets.",
+      technologies: ["Logistic Regression", "Naive Bayes", "NLTK", "TF-IDF", "Flask", "HTML/CSS/JS", "Render"],
+      links: [
+        { name: "GitHub", url: "https://github.com/SanskarBajaj123/Sentiment_Analyzer" },
+        { name: "Live Demo", url: "https://sentiment-analyzer-frontend.onrender.com/" }
+      ]
+    },
+    
+    {
       title: "College Management System",
       description: "Collaborated on a group project to develop a web-based College Management System with role-based authentication for Admin, Faculty, and Student portals. Implemented secure login and personalized dashboards using Django's built-in authentication. Admins managed departments and courses, faculty tracked academic performance, and students accessed their records and certificate applications. Developed core modules for managing academic records, fee payments, library resources, grievances, and feedback collection.",
       technologies: ["HTML/CSS", "JavaScript", "Django", "SQLite", "Bootstrap"],
@@ -32,7 +42,16 @@ const Projects = () => {
       links: [
         { name: "GitHub", url: "https://github.com/SanskarBajaj123/Mini-Election-Portal" }
       ]
+    },
+    {
+      title: "Savory Bites: Exploring Culinary Delights",
+      description: "Developed a full-stack Cafe Management Web App that streamlines the process of managing menu items, orders, and table bookings. The system enables users to explore various cuisines, manage daily specials, and process customer orders efficiently. Utilized Flask for backend logic and MySQL for data management, paired with a visually appealing frontend built using HTML, CSS, JavaScript, and Bootstrap to enhance the user experience.",
+      technologies: ["Flask", "MySQL", "HTML/CSS/JS", "Bootstrap", "Jinja2"],
+      links: [
+        { name: "GitHub", url: "https://github.com/SanskarBajaj123/group_project" }
+      ]
     }
+    
   ];
 
   // Get visible projects for circular effect

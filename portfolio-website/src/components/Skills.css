@@ -65,3 +65,31 @@
       padding: 1.5rem;
     }
   }
+  /* Existing styles... (keep them) */
+
+.scrolling-wrapper {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.scrolling-content {
+  display: flex;
+  gap: 1rem;
+  animation: scroll-left 20s linear infinite;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Optional: Make sure the skill items don’t wrap */
+.scrolling-content .skill-item {
+  flex-shrink: 0;
+  white-space: nowrap;
+}

@@ -10,6 +10,7 @@ import Achievements from './components/Achievements';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import './App.css';
+import ScrollToTopButton from './components/ScrollToTopButton';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
               <Skills />
               <Achievements />
               <Contact />
+              <ScrollToTopButton />
             </>
           } />
         </Routes>
