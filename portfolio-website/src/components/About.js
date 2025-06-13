@@ -41,7 +41,7 @@ const About = () => {
           </div>
           <div className="stat">
             <h3>CGPA</h3>
-            <p>9.18/10</p>
+            <p>9.30/10</p>
           </div>
           <div className="stat">
             <h3>Location</h3>
