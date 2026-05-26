@@ -1,6 +1,6 @@
 .about {
     padding: 100px 5%;
-    background-color: #f9f7f7;
+    background-color: var(--bg);
   }
   
   .about-content {
@@ -19,7 +19,7 @@
     margin-bottom: 1.5rem;
     font-size: 1.1rem;
     line-height: 1.8;
-    color: #333;
+    color: var(--text);
   }
   
   .about-stats {
@@ -30,30 +30,33 @@
   }
   
   .stat {
-    background-color: white;
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease;
-    border-left: 5px solid #e94560;
+    border-left: 5px solid var(--secondary);
   }
   
   .stat:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    border-left: 5px solid #ffd700;
+    border-left: 5px solid var(--accent);
   }
   
   .stat h3 {
     font-size: 1.3rem;
     margin-bottom: 0.5rem;
-    color: #2a2f4f;
+    color: var(--primary);
     font-weight: 600;
   }
   
   .stat p {
     font-size: 1.1rem;
-    color: #444;
+    color: var(--text-muted);
     line-height: 1.6;
   }
   
