@@ -8,6 +8,7 @@ const Contact = () => {
     email: '',
     message: ''
   });
+  const [result, setResult] = useState("");
 
   const handleChange = (e) => {
     setFormData({
@@ -16,17 +17,38 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Form submission logic would go here
-    console.log(formData);
-    // Reset form after submission
-    setFormData({
-      name: '',
-      email: '',
-      message: ''
-    });
-    alert('Thank you for your message! I will get back to you soon.');
+    setResult("Sending...");
+    
+    const submitData = {
+      ...formData,
+      access_key: "YOUR_ACCESS_KEY_HERE"
+    };
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: JSON.stringify(submitData)
+      });
+      const data = await response.json();
+
+      if (data.success) {
+        setResult("Message Sent Successfully!");
+        setFormData({ name: '', email: '', message: '' });
+        setTimeout(() => setResult(""), 5000);
+      } else {
+        console.log("Error", data);
+        setResult(data.message);
+      }
+    } catch (error) {
+      console.log(error);
+      setResult("Something went wrong!");
+    }
   };
 
   return (
@@ -44,7 +66,7 @@ const Contact = () => {
       
       <div className="contact-container">
         <motion.div 
-          className="contact-info"
+          className="contact-info true-glass"
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
@@ -81,7 +103,30 @@ const Contact = () => {
           </div>
         </motion.div>
         
-        
+        <motion.div 
+          className="contact-form true-glass"
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+        >
+          <form onSubmit={handleSubmit}>
+            <div className="form-group">
+              <label htmlFor="name">Your Name</label>
+              <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required placeholder="John Doe" />
+            </div>
+            <div className="form-group">
+              <label htmlFor="email">Your Email</label>
+              <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required placeholder="john@example.com" />
+            </div>
+            <div className="form-group">
+              <label htmlFor="message">Your Message</label>
+              <textarea id="message" name="message" value={formData.message} onChange={handleChange} required placeholder="Hello, I'd like to talk about..."></textarea>
+            </div>
+            <button type="submit" className="submit-btn">Send Message</button>
+            {result && <p style={{ marginTop: '1rem', color: result.includes('Success') ? 'green' : 'var(--text)' }}>{result}</p>}
+          </form>
+        </motion.div>
       </div>
     </section>
   );

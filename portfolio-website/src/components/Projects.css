@@ -1,202 +1,208 @@
 .projects {
-    padding: 100px 5%;
-    background-color: #f9f7f7;
-  }
-  
-  .projects-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .carousel-wrapper {
-    position: relative;
-    width: 100%;
-    margin-bottom: 2rem;
-    overflow: hidden;
-  }
-  
-  .carousel-wrapper::before,
-  .carousel-wrapper::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    width: 100px;
-    height: 100%;
-    z-index: 2;
-    pointer-events: none;
-  }
-  
-  .carousel-wrapper::before {
-    left: 0;
-    background: linear-gradient(to right, rgba(249, 247, 247, 1), rgba(249, 247, 247, 0));
-  }
-  
-  .carousel-wrapper::after {
-    right: 0;
-    background: linear-gradient(to left, rgba(249, 247, 247, 1), rgba(249, 247, 247, 0));
-  }
-  
-  .project-carousel {
-    display: flex;
-    gap: 1rem;
-    padding: 1rem 0;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE and Edge */
-    margin: 0 auto;
-    position: relative;
-    width: 100%;
-    justify-content: flex-start;
-    padding-left: calc(50% - 100px);
-    padding-right: calc(50% - 100px);
-  }
-  
-  /* Hide scrollbar for Chrome, Safari and Opera */
-  .project-carousel::-webkit-scrollbar {
-    display: none;
-  }
-  
-  .project-tab {
-    padding: 1rem 1.5rem;
-    background-color: white;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-weight: 500;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-    white-space: nowrap;
-    flex-shrink: 0;
-    position: relative;
-  }
-  
-  .project-tab.active {
-    background-color: #e94560;
-    color: white;
-    transform: scale(1.05);
-    z-index: 5;
-  }
-  
-  .project-tab:hover:not(.active) {
-    background-color: #f0f0f0;
-    transform: translateY(-3px);
-  }
-  
+  width: 100%;
+}
+
+.projects-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.carousel-wrapper {
+  position: relative;
+  width: 100%;
+  margin-bottom: 3rem;
+  overflow: hidden;
+}
+
+.carousel-wrapper::before,
+.carousel-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 120px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.carousel-wrapper::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg), transparent);
+}
+
+.carousel-wrapper::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg), transparent);
+}
+
+.project-carousel {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1rem 0;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  margin: 0 auto;
+  position: relative;
+  width: 100%;
+  justify-content: flex-start;
+  padding-left: calc(50% - 150px);
+  padding-right: calc(50% - 150px);
+}
+
+.project-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.project-tab {
+  padding: 1rem 2rem;
+  background: var(--card-bg);
+  color: var(--text-muted);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.project-tab.active {
+  background: linear-gradient(135deg, var(--secondary), var(--accent));
+  color: white;
+  transform: scale(1.1);
+  border-color: transparent;
+  box-shadow: 0 10px 20px var(--glow);
+  z-index: 5;
+}
+
+.project-tab:hover:not(.active) {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-3px);
+  color: var(--primary);
+  border-color: var(--accent);
+}
+
+.project-content {
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  transition: all 0.5s ease;
+}
+
+.project-content h3 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.project-content p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.tech-tag {
+  padding: 0.6rem 1.2rem;
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 50px;
+  font-size: 0.95rem;
+  color: var(--accent);
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.tech-tag:hover {
+  background: rgba(59, 130, 246, 0.2);
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.4);
+}
+
+.project-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  padding: 1rem 2.5rem;
+  background: transparent;
+  color: white;
+  border: 2px solid var(--secondary);
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.project-link::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: var(--secondary);
+  z-index: -1;
+  transition: transform 0.3s ease;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.project-link:hover::before {
+  transform: scaleX(1);
+}
+
+.project-link:hover {
+  box-shadow: 0 5px 15px var(--glow);
+  border-color: var(--secondary);
+}
+
+@media (max-width: 768px) {
   .project-content {
-    background-color: white;
-    padding: 3rem;
-    border-radius: 20px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+    padding: 2.5rem;
   }
   
   .project-content h3 {
     font-size: 2rem;
-    font-weight: 600;
-    color: #2a2f4f;
-    margin-bottom: 0.5rem;
   }
   
-  .project-content p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #444;
-    margin-bottom: 1rem;
+  .carousel-wrapper::before,
+  .carousel-wrapper::after {
+    width: 60px;
   }
   
-  .technologies {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.8rem;
-    margin-bottom: 1.5rem;
-  }
-  
-  .tech-tag {
-    padding: 0.5rem 1rem;
-    background-color: #f0f0f0;
-    border-radius: 50px;
-    font-size: 0.9rem;
-    color: #333;
-    font-weight: 500;
+  .project-carousel {
+    padding-left: calc(30% - 50px);
+    padding-right: calc(30% - 50px);
   }
   
   .project-links {
-    display: flex;
+    flex-direction: column;
     gap: 1rem;
   }
   
   .project-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    padding: 0.8rem 1.8rem;
-    background-color: #2a2f4f;
-    color: white;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 500;
-    transition: all 0.3s ease;
+    width: 100%;
   }
-  
-  .project-link:hover {
-    background-color: #3e4474;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 15px rgba(42, 47, 79, 0.3);
-  }
-  
-  .section-header {
-    text-align: center;
-    margin-bottom: 3rem;
-  }
-  
-  .section-header h2 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #2a2f4f;
-    margin-bottom: 1rem;
-  }
-  
-  .underline {
-    height: 4px;
-    width: 80px;
-    background-color: #e94560;
-    margin: 0 auto;
-  }
-  
-  @media (max-width: 768px) {
-    .project-content {
-      padding: 2rem;
-    }
-    
-    .project-content h3 {
-      font-size: 1.6rem;
-    }
-    
-    .carousel-wrapper::before,
-    .carousel-wrapper::after {
-      width: 60px;
-    }
-    
-    .project-carousel {
-      padding-left: calc(30% - 50px);
-      padding-right: calc(30% - 50px);
-    }
-    
-    .section-header h2 {
-      font-size: 2rem;
-    }
-  }
-  
-  @keyframes scrollLeft {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-100%);
-    }
-  }
+}

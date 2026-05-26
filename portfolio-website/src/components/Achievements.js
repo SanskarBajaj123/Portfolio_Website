@@ -10,14 +10,14 @@ const Achievements = () => {
       description: "Successfully completed the program, gaining knowledge of various applications of Machine Learning and Deep Learning, including Natural Language Processing, Generative AI, and Image Processing."
     },
     {
-      title: "Hospitality Lead - TantraFiesta 2024",
-      organization: "IIIT Nagpur",
-      description: "Secured position of Hospitality Lead in the College Annual Technical Fest TantraFiesta 2024 and Coordinator in college events like TantraFiesta 2023, Abhivyakti 2024."
-    },
-    {
       title: "Google Cloud Computing Foundations & Gen AI Certification",
       organization: "Google",
       description: "Completed Google Cloud Computing Foundations and Gen AI Certification Course by Google."
+    },
+    {
+      title: "Hospitality Lead - TantraFiesta 2024",
+      organization: "IIIT Nagpur",
+      description: "Secured position of Hospitality Lead in the College Annual Technical Fest TantraFiesta 2024 and Coordinator in college events like TantraFiesta 2023, Abhivyakti 2024."
     },
     {
       title: "Marketing Hospitality Lead at Orator Club",
@@ -35,7 +35,7 @@ const Achievements = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
       >
-        <h2>Achievements</h2>
+        <h2>Achievements & Certifications</h2>
         <div className="underline"></div>
       </motion.div>
       
@@ -43,7 +43,7 @@ const Achievements = () => {
         {achievements.map((achievement, index) => (
           <motion.div 
             key={index} 
-            className="achievement-card"
+            className="achievement-card true-glass"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}

@@ -23,9 +23,9 @@ const About = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <p>I'm a dedicated Computer Science & Engineering student at Indian Institute Of Information Technology, Nagpur with a current CGPA of 9.18. My academic journey is focused on developing expertise in machine learning, deep learning, web development, and software engineering.</p>
-          <p>With a passion for innovation and problem-solving, I've worked on various projects ranging from emotion analysis using BiLSTM neural networks to developing comprehensive web applications. I thrive in collaborative environments and have demonstrated leadership skills through my roles in various college organizations.</p>
-          <p>I'm constantly expanding my knowledge through certifications and hands-on projects, always eager to apply cutting-edge technologies to solve real-world problems.</p>
+          <p>I'm a Computer Science & Engineering student at the Indian Institute of Information Technology, Nagpur, maintaining a CGPA of 9.35. My academic journey is driven by a deep curiosity for building software that solves real-world problems.</p>
+          <p>I have hands-on experience in AI product development, having built core orchestration agents at Kookar AI and implemented full-stack web and mobile applications using React, Node, and Supabase. My technical foundation spans across machine learning algorithms and modern web frameworks.</p>
+          <p>Whether it's designing efficient backend architectures or deploying intelligent models, I am constantly learning and eager to tackle complex engineering challenges collaboratively.</p>
         </motion.div>
         <motion.div 
           className="about-stats"
@@ -41,7 +41,7 @@ const About = () => {
           </div>
           <div className="stat">
             <h3>CGPA</h3>
-            <p>9.30/10</p>
+            <p>9.35/10</p>
           </div>
           <div className="stat">
             <h3>Location</h3>
