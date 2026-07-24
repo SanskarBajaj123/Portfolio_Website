@@ -42,6 +42,9 @@ const Hero = () => {
             <Link to="projects" className="btn secondary-btn" smooth duration={800}>
               View Projects
             </Link>
+            <Link to="experience" className="btn secondary-btn" smooth duration={800}>
+              View Experience
+            </Link>
           </motion.div>
 
           <motion.div 
