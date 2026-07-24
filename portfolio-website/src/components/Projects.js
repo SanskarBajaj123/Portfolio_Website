@@ -14,7 +14,7 @@ const Projects = () => {
       technologies: ["React", "TypeScript", "FastAPI", "Supabase", "Mistral OCR", "Python"],
       links: [
         { name: "GitHub", url: "https://github.com/SanskarBajaj123/vendor-onboarding" },
-        { name: "Live Demo", url: "https://zamp-vendor-onboarding.vercel.app" },
+        { name: "Live Demo", url: "https://dev-s-vendor-onboarding.vercel.app/" },
         { name: "Demo Video", url: "https://www.loom.com/share/f90d611d39aa4f21a560587a85e6d9e0" }
       ]
     },
