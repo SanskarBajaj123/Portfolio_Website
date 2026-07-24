@@ -15,12 +15,20 @@ const Hero = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
+          <motion.p
+            className="hero-greeting"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+          >
+            Hi, this is
+          </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
-            Hi, this is <span className="highlight">Sanskar Bajaj</span>
+            <span className="highlight">Sanskar Bajaj</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
