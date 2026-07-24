@@ -9,6 +9,25 @@ const Projects = () => {
   
   const projects = [
     {
+      title: "AI Vendor Onboarding",
+      description: "End-to-end automated vendor onboarding platform where vendors submit company details and documents, and an AI pipeline extracts, cross-checks, and decides — approved, pending, or rejected — with a full audit trail and real email notifications. Mistral OCR verifies documents against form data using fuzzy matching; the decision engine handles identity-level mismatches, soft conflicts, and secure 2-minute expiring re-submission confirmation links. Includes an employee dashboard with override capabilities and per-step pipeline log.",
+      technologies: ["React", "TypeScript", "FastAPI", "Supabase", "Mistral OCR", "Python"],
+      links: [
+        { name: "GitHub", url: "https://github.com/SanskarBajaj123/vendor-onboarding" },
+        { name: "Live Demo", url: "https://zamp-vendor-onboarding.vercel.app" },
+        { name: "Demo Video", url: "https://www.loom.com/share/f90d611d39aa4f21a560587a85e6d9e0" }
+      ]
+    },
+    {
+      title: "TasteMaker",
+      description: "A five-stage AI pipeline for hyper-local restaurant marketing strategy generation. Trained an XGBoost model (AUC-ROC 0.6798) on 148K+ real Swiggy listings to predict restaurant success probability with SHAP explainability. Integrates live Google Trends signals for cuisine demand, retrieves data-grounded marketing playbooks via ChromaDB vector search, and composes actionable 3-paragraph strategies using a Flan-T5 model — all served through a FastAPI backend and React frontend.",
+      technologies: ["XGBoost", "SHAP", "ChromaDB", "Flan-T5", "FastAPI", "React", "Python"],
+      links: [
+        { name: "GitHub", url: "https://github.com/SanskarBajaj123/tastemaker-assistant" },
+        { name: "Live Demo", url: "https://tastemaker-assistant.vercel.app" }
+      ]
+    },
+    {
       title: "SimplySpent",
       description: "A robust cross-platform expense tracker built with React and React Native. Engineered a secure backend architecture utilizing Supabase, incorporating advanced Row Level Security (RLS) policies to ensure absolute data privacy and isolation for multi-tenant users. Delivered a highly responsive UI with real-time state synchronization.",
       technologies: ["React", "React Native", "Supabase", "PostgreSQL", "RLS"],
@@ -27,20 +46,12 @@ const Projects = () => {
       ]
     },
     {
-      title: "Sentiment Analysis of Tweets",
-      description: "Built and deployed a Sentiment Analysis Web App using traditional machine learning models (Logistic Regression, Naive Bayes). Implemented a robust NLP pipeline using NLTK for stemming, stopword removal, and vectorization with TF-IDF. Achieved high accuracy and integrated with a scalable Flask backend.",
-      technologies: ["Logistic Regression", "Naive Bayes", "NLTK", "TF-IDF", "Flask"],
+      title: "Sentiment Analysis",
+      description: "Built and deployed a Sentiment Analysis Web App using traditional machine learning models (Logistic Regression, Naive Bayes). Implemented a robust NLP pipeline using NLTK for stemming, stopword removal, and vectorization with TF-IDF. Achieved high accuracy and integrated with a scalable Flask backend and React frontend.",
+      technologies: ["Logistic Regression", "Naive Bayes", "NLTK", "TF-IDF", "Flask", "React"],
       links: [
         { name: "GitHub", url: "https://github.com/SanskarBajaj123/Sentiment_Analyzer" },
         { name: "Live Demo", url: "https://sentiment-analyzer-frontend.onrender.com/" }
-      ]
-    },
-    {
-      title: "College Management System",
-      description: "Collaborated on a web-based CMS with role-based authentication for Admin, Faculty, and Student portals. Implemented secure login and personalized dashboards using Django. Developed modules for academic records, fee payments, and feedback collection.",
-      technologies: ["Django", "Python", "SQLite", "JavaScript", "Bootstrap"],
-      links: [
-        { name: "GitHub", url: "https://github.com/SanskarBajaj123/Student_management" }
       ]
     }
   ];

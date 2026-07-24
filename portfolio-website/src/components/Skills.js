@@ -1,10 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-  SiPytorch, SiTensorflow, SiScikitlearn, SiNumpy, SiPandas, 
+import {
+  SiPytorch, SiTensorflow, SiScikitlearn, SiNumpy, SiPandas,
   SiLangchain, SiOpenai, SiAnthropic, SiGooglegemini,
-  SiReact, SiNodedotjs, SiExpress, SiDjango, SiFlask,
-  SiPython, SiJavascript, SiMysql, SiC, SiCplusplus,
+  SiReact, SiNodedotjs, SiExpress, SiDjango, SiFlask, SiFastapi,
+  SiPython, SiJavascript, SiTypescript, SiMysql, SiC, SiCplusplus,
   SiAmazonwebservices, SiGooglecloud, SiOracle, SiVercel, SiRender, SiGithub,
   SiLinear, SiNotion, SiN8N, SiGooglesheets
 } from 'react-icons/si';
@@ -40,7 +40,8 @@ const Skills = () => {
         { name: "Node.js", icon: SiNodedotjs },
         { name: "Express", icon: SiExpress },
         { name: "Django", icon: SiDjango },
-        { name: "Flask", icon: SiFlask }
+        { name: "Flask", icon: SiFlask },
+        { name: "FastAPI", icon: SiFastapi }
       ],
       span: "span 1"
     },
@@ -49,6 +50,7 @@ const Skills = () => {
       skills: [
         { name: "Python", icon: SiPython },
         { name: "JavaScript", icon: SiJavascript },
+        { name: "TypeScript", icon: SiTypescript },
         { name: "SQL", icon: SiMysql },
         { name: "C", icon: SiC },
         { name: "C++", icon: SiCplusplus }
