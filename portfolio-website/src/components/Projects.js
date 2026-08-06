@@ -20,8 +20,8 @@ const Projects = () => {
     },
     {
       title: "TasteMaker",
-      description: "A five-stage AI pipeline for hyper-local restaurant marketing strategy generation. Trained an XGBoost model (AUC-ROC 0.6798) on 148K+ real Swiggy listings to predict restaurant success probability with SHAP explainability. Integrates live Google Trends signals for cuisine demand, retrieves data-grounded marketing playbooks via ChromaDB vector search, and composes actionable 3-paragraph strategies using a Flan-T5 model — all served through a FastAPI backend and React frontend.",
-      technologies: ["XGBoost", "SHAP", "ChromaDB", "Flan-T5", "FastAPI", "React", "Python"],
+      description: "A five-stage AI pipeline that converts a plain-English restaurant description into a data-grounded marketing strategy. XGBoost (AUC-ROC 0.67, benchmarked against LR, RF, and LightGBM) was trained on 43K cleaned Swiggy listings with engineered success signals and SHAP-powered explainability. Three MiniLM-backed NLU classifiers extract city, cuisine, and cost tier from free text; a live Google Trends signal adds real-time demand context; ChromaDB retrieves from 72 playbooks across 8 cuisine clusters with exact-match-then-semantic fallback; and Mistral AI (open-mistral-7b) composes the final strategy. Deployed on Render free-tier using ONNX-backed embeddings to stay within 512MB RAM; React + Vite frontend features a live pipeline trace, SVG probability gauge, and SHAP feature panel.",
+      technologies: ["XGBoost", "SHAP", "ChromaDB", "Mistral AI", "FastAPI", "React + Vite", "Python"],
       links: [
         { name: "GitHub", url: "https://github.com/SanskarBajaj123/tastemaker-assistant" },
         { name: "Live Demo", url: "https://tastemaker-assistant.vercel.app" }

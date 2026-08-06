@@ -27,6 +27,7 @@ const Skills = () => {
         { name: "OpenAI API", icon: SiOpenai },
         { name: "Anthropic API", icon: SiAnthropic },
         { name: "Gemini", icon: SiGooglegemini },
+        { name: "Mistral AI", icon: BsRobot },
         { name: "DeepSeek", icon: BsRobot },
         { name: "GLM", icon: FaBrain }
       ],
