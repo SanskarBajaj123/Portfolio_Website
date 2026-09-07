@@ -1,70 +1,57 @@
-# Getting Started with Create React App
+# Sanskar Bajaj — Portfolio Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Personal portfolio website for Sanskar Bajaj, B.Tech CSE student at IIIT Nagpur. Built as a standalone HTML file (Claude Design export) — no build framework required.
 
-## Available Scripts
+**Live:** https://portfolio-website-lime-seven-79.vercel.app
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## Structure
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```
+public/
+  index.html          ← The entire site (standalone Claude Design bundle)
+  favicon.ico
+  manifest.json
+  robots.txt
+DESIGN_SYSTEM.md      ← Colors, layout, node data, editing checklist
+vercel.json           ← Vercel deploy config (static, no framework)
+_src_react_archive/   ← Previous CRA/React source (archived, not built)
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Running locally
 
-### `npm test`
+```bash
+npm start
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Opens the site at http://localhost:3000 via `npx serve public`.
 
-### `npm run build`
+No install needed beyond Node — `npx serve` is fetched on first run.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Deploying
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+npm run build   # copies public/ → build/
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Vercel picks up `vercel.json` automatically:
+- `buildCommand`: `npm run build`
+- `outputDirectory`: `build`
+- `framework`: none (static HTML)
 
-### `npm run eject`
+Push to `main` → Vercel auto-deploys.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Editing the design
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+All visual edits (colors, layout, text, section order) should be made in **Claude Design** and re-exported as `public/index.html`. The design reference lives in [`DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md).
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Projects featured
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+| Project | Stack | Links |
+|---|---|---|
+| AI Vendor Onboarding | React, TypeScript, FastAPI, Supabase, Mistral OCR | [GitHub](https://github.com/SanskarBajaj123/vendor-onboarding) · [Demo](https://dev-s-vendor-onboarding.vercel.app/) · [Video](https://www.loom.com/share/f90d611d39aa4f21a560587a85e6d9e0) |
+| TasteMaker | XGBoost, SHAP, ChromaDB, Mistral AI, FastAPI, React+Vite | [GitHub](https://github.com/SanskarBajaj123/tastemaker-assistant) · [Demo](https://tastemaker-assistant.vercel.app) |
+| SimplySpent | React, React Native, Supabase, PostgreSQL | [GitHub](https://github.com/SanskarBajaj123/SimplySpent) · [Demo](https://simply-spent-dusky.vercel.app/) |
+| Emotion Analysis of Tweets | BiLSTM, TensorFlow, Flask, React | [GitHub](https://github.com/SanskarBajaj123/Emotion_Analyzer) |
+| Sentiment Analysis | Logistic Regression, NLTK, TF-IDF, Flask | [GitHub](https://github.com/SanskarBajaj123/Sentiment_Analyzer) · [Demo](https://sentiment-analyzer-frontend.onrender.com/) |
