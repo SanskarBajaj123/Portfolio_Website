@@ -7,11 +7,18 @@
   <meta name="description" content="Sanskar Bajaj - AI/ML engineer and full-stack developer. Portfolio showcasing projects in LLM orchestration, full-stack, and machine learning.">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #faf9f5; display: flex; align-items: center; justify-content: center; min-height: 100vh; font-family: -apple-system, BlinkMacSystemFont, sans-serif; }
-    #__bundler_loading { position: fixed; bottom: 20px; right: 20px; font: 13px/1.4 -apple-system, BlinkMacSystemFont, sans-serif; color: #666; background: #fff; padding: 8px 14px; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.12); z-index: 10000; }
-    #__bundler_thumbnail { position: fixed; inset: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #faf9f5; z-index: 9999; }
-    #__bundler_thumbnail svg { width: 100%; height: 100%; object-fit: contain; }
+    body { background: #141414; display: flex; align-items: center; justify-content: center; min-height: 100vh; font-family: -apple-system, BlinkMacSystemFont, sans-serif; }
+    #__bundler_loading { display: none; }
+    #__bundler_thumbnail { position: fixed; inset: 0; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #141414; z-index: 9999; gap: 20px; }
+    #__bundler_thumbnail svg { width: auto; height: auto; }
     #__bundler_placeholder { color: #999; font-size: 14px; }
+    #__splash_logo { width: 72px; height: 72px; background: #ff6d5a; border-radius: 18px; display: flex; align-items: center; justify-content: center; font-size: 28px; font-weight: 700; color: #1a0a08; letter-spacing: -1px; }
+    #__splash_name { color: #f0f0f0; font-size: 18px; font-weight: 600; letter-spacing: 0.02em; }
+    #__splash_dots { display: flex; gap: 6px; }
+    #__splash_dots span { width: 7px; height: 7px; border-radius: 50%; background: #ff6d5a; opacity: 0.3; animation: splashPulse 1.2s ease-in-out infinite; }
+    #__splash_dots span:nth-child(2) { animation-delay: 0.2s; }
+    #__splash_dots span:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes splashPulse { 0%,100%{opacity:0.25;transform:scale(0.8);} 50%{opacity:1;transform:scale(1.1);} }
   </style>
   <noscript>
     <style>#__bundler_loading { display: none; }</style>
@@ -21,8 +28,12 @@
   </noscript>
 </head>
 <body>
-  <div id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><rect width="120" height="120" fill="#141414"></rect><circle cx="60" cy="42" r="16" fill="none" stroke="#ff6d5a" stroke-width="4"></circle><circle cx="34" cy="82" r="10" fill="none" stroke="#54b8c9" stroke-width="4"></circle><circle cx="86" cy="82" r="10" fill="none" stroke="#9b6dd5" stroke-width="4"></circle><path d="M50 52 L38 74 M70 52 L78 74" stroke="#8a8a8d" stroke-width="3"></path></svg></div>
-  <div id="__bundler_loading">Unpacking...</div>
+  <div id="__bundler_thumbnail">
+    <div id="__splash_logo">SB</div>
+    <div id="__splash_name">Sanskar Bajaj</div>
+    <div id="__splash_dots"><span></span><span></span><span></span></div>
+  </div>
+  <div id="__bundler_loading"></div>
 
   <script>
     
