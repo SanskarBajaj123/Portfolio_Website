@@ -301,3 +301,18 @@ function showPanel(){
   }
 }
 })();
+
+// Remove pre-render cover overlay once the canvas is ready
+(function(){
+  function removeRc(){
+    var c=document.getElementById('__rc');
+    if(!c)return;
+    if(document.querySelector('svg[width],canvas,[data-node-id],[class*="node"]')){
+      c.style.transition='opacity .25s';c.style.opacity='0';
+      setTimeout(function(){if(c&&c.parentNode)c.parentNode.removeChild(c);},280);
+    } else {
+      setTimeout(removeRc,60);
+    }
+  }
+  setTimeout(removeRc,200);
+})();
