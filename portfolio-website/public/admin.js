@@ -109,8 +109,12 @@ function showPanel(){
   var adm=getAdmData()||{};
   var expData=JSON.parse(JSON.stringify(window.__SB_EXP||[]));
   var projData=JSON.parse(JSON.stringify(window.__SB_PROJ||[]));
+  var siteData=JSON.parse(JSON.stringify(window.__SB_SITE_INFO||{}));
+  var achieveData=JSON.parse(JSON.stringify(window.__SB_ACHIEVEMENTS||[]));
   if(adm.experience&&adm.experience.length)expData=JSON.parse(JSON.stringify(adm.experience));
   if(adm.projects&&adm.projects.length)projData=JSON.parse(JSON.stringify(adm.projects));
+  if(adm.siteInfo)Object.assign(siteData,adm.siteInfo);
+  if(adm.achievements&&adm.achievements.length)achieveData=JSON.parse(JSON.stringify(adm.achievements));
 
   var panel=el('div','position:fixed;top:0;right:0;width:420px;height:100vh;background:#1a1a1c;border-left:1px solid #2a2a2c;z-index:100000;display:flex;flex-direction:column;font-family:Inter,system-ui,sans-serif;box-shadow:-4px 0 24px rgba(0,0,0,.5);');
 
@@ -127,18 +131,30 @@ function showPanel(){
   hdr.appendChild(btnRow);
   panel.appendChild(hdr);
 
-  var tabs=el('div','display:flex;border-bottom:1px solid #2a2a2c;padding:0 20px;flex-shrink:0;');
+  var tabs=el('div','display:flex;border-bottom:1px solid #2a2a2c;padding:0 10px;flex-shrink:0;overflow-x:auto;');
   var activeTab='exp';
+
   function makeTab(label,active){
-    var t=el('button','padding:10px 14px;background:none;border:none;border-bottom:2px solid '+(active?'#ff6d5a':'transparent')+';color:'+(active?'#ff6d5a':'#8a8a8d')+';font-size:13px;cursor:pointer;margin-bottom:-1px;font-family:inherit;');
+    var t=el('button','padding:10px 12px;background:none;border:none;border-bottom:2px solid '+(active?'#ff6d5a':'transparent')+';color:'+(active?'#ff6d5a':'#8a8a8d')+';font-size:12px;cursor:pointer;margin-bottom:-1px;font-family:inherit;white-space:nowrap;flex-shrink:0;');
     t.textContent=label; return t;
   }
+
   var tabExp=makeTab('Experience',true);
   var tabProj=makeTab('Projects',false);
-  function setActive(a,b){a.style.color='#ff6d5a';a.style.borderBottom='2px solid #ff6d5a';b.style.color='#8a8a8d';b.style.borderBottom='2px solid transparent';}
-  tabExp.addEventListener('click',function(){activeTab='exp';setActive(tabExp,tabProj);renderTab();});
-  tabProj.addEventListener('click',function(){activeTab='proj';setActive(tabProj,tabExp);renderTab();});
-  tabs.appendChild(tabExp); tabs.appendChild(tabProj);
+  var tabAchieve=makeTab('Achievements',false);
+  var tabSite=makeTab('Site Info',false);
+  var allTabs=[tabExp,tabProj,tabAchieve,tabSite];
+
+  function setActive(active){
+    allTabs.forEach(function(t){t.style.color='#8a8a8d';t.style.borderBottom='2px solid transparent';});
+    active.style.color='#ff6d5a';active.style.borderBottom='2px solid #ff6d5a';
+  }
+
+  tabExp.addEventListener('click',function(){activeTab='exp';setActive(tabExp);renderTab();});
+  tabProj.addEventListener('click',function(){activeTab='proj';setActive(tabProj);renderTab();});
+  tabAchieve.addEventListener('click',function(){activeTab='achieve';setActive(tabAchieve);renderTab();});
+  tabSite.addEventListener('click',function(){activeTab='site';setActive(tabSite);renderTab();});
+  allTabs.forEach(function(t){tabs.appendChild(t);});
   panel.appendChild(tabs);
 
   var content=el('div','flex:1;overflow-y:auto;padding:16px 20px;');
@@ -159,9 +175,12 @@ function showPanel(){
   function renderTab(){
     content.innerHTML='';
     if(activeTab==='exp')renderExpTab();
-    else renderProjTab();
+    else if(activeTab==='proj')renderProjTab();
+    else if(activeTab==='achieve')renderAchieveTab();
+    else renderSiteTab();
   }
 
+  // ── Experience tab ──
   function renderExpTab(){
     expData.forEach(function(exp,i){
       var item=el('div','background:#1e1e20;border:1px solid #2a2a2c;border-radius:10px;padding:14px;margin-bottom:10px;');
@@ -170,7 +189,7 @@ function showPanel(){
       var title=el('div','color:#f2f2f2;font-weight:600;font-size:13px;margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;');
       title.textContent=(exp.role||'')+' @ '+(exp.company||'');
       var sub=el('div','color:#8a8a8d;font-size:11px;');
-      sub.textContent=(exp.period||'')+' \u00b7 '+(exp.bullets?exp.bullets.length:0)+' bullets';
+      sub.textContent=(exp.period||'')+' · '+(exp.bullets?exp.bullets.length:0)+' bullets';
       info.appendChild(title); info.appendChild(sub);
       var btns=el('div','display:flex;gap:6px;flex-shrink:0;margin-left:8px;');
       btns.appendChild(mkBtn('Edit','padding:3px 9px;background:#232325;border:1px solid #2a2a2c;border-radius:5px;color:#f2f2f2;font-size:11px;cursor:pointer;',function(){editExp(i);}));
@@ -181,6 +200,7 @@ function showPanel(){
     content.appendChild(mkBtn('+ Add Experience','width:100%;padding:11px;background:none;border:2px dashed #2a2a2c;border-radius:10px;color:#8a8a8d;font-size:13px;cursor:pointer;font-family:inherit;',function(){editExp(null);}));
   }
 
+  // ── Projects tab ──
   function renderProjTab(){
     projData.forEach(function(proj,i){
       var item=el('div','background:#1e1e20;border:1px solid #2a2a2c;border-radius:10px;padding:14px;margin-bottom:10px;');
@@ -189,7 +209,7 @@ function showPanel(){
       var title=el('div','color:#f2f2f2;font-weight:600;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;');
       title.textContent=proj.title||'';
       var sub=el('div','color:#8a8a8d;font-size:11px;');
-      sub.textContent=(proj.links||[]).map(function(l){return l.name||l.label||'';}).join(' \u00b7 ');
+      sub.textContent=(proj.links||[]).map(function(l){return l.name||l.label||'';}).join(' · ');
       info.appendChild(title); info.appendChild(sub);
       var btns=el('div','display:flex;gap:6px;flex-shrink:0;margin-left:8px;');
       btns.appendChild(mkBtn('Edit','padding:3px 9px;background:#232325;border:1px solid #2a2a2c;border-radius:5px;color:#f2f2f2;font-size:11px;cursor:pointer;',function(){editProj(i);}));
@@ -200,14 +220,87 @@ function showPanel(){
     content.appendChild(mkBtn('+ Add Project','width:100%;padding:11px;background:none;border:2px dashed #2a2a2c;border-radius:10px;color:#8a8a8d;font-size:13px;cursor:pointer;font-family:inherit;',function(){editProj(null);}));
   }
 
+  // ── Achievements tab ──
+  function renderAchieveTab(){
+    achieveData.forEach(function(a,i){
+      var item=el('div','background:#1e1e20;border:1px solid #2a2a2c;border-radius:10px;padding:14px;margin-bottom:10px;');
+      var row=el('div','display:flex;justify-content:space-between;align-items:flex-start;');
+      var info=el('div','flex:1;min-width:0;');
+      var title=el('div','color:#f2f2f2;font-weight:600;font-size:13px;margin-bottom:2px;line-height:1.4;');
+      title.textContent=a.title||'';
+      var sub=el('div','color:#8a8a8d;font-size:11px;');
+      sub.textContent=a.organization||'';
+      info.appendChild(title); info.appendChild(sub);
+      var btns=el('div','display:flex;gap:6px;flex-shrink:0;margin-left:8px;');
+      btns.appendChild(mkBtn('Edit','padding:3px 9px;background:#232325;border:1px solid #2a2a2c;border-radius:5px;color:#f2f2f2;font-size:11px;cursor:pointer;',function(){editAchieve(i);}));
+      btns.appendChild(mkBtn('Del','padding:3px 9px;background:#232325;border:1px solid #3a1a1a;border-radius:5px;color:#ff6060;font-size:11px;cursor:pointer;',function(){if(confirm('Delete this achievement?')){achieveData.splice(i,1);renderTab();}}));
+      row.appendChild(info); row.appendChild(btns);
+      item.appendChild(row); content.appendChild(item);
+    });
+    content.appendChild(mkBtn('+ Add Achievement','width:100%;padding:11px;background:none;border:2px dashed #2a2a2c;border-radius:10px;color:#8a8a8d;font-size:13px;cursor:pointer;font-family:inherit;',function(){editAchieve(null);}));
+  }
+
+  // ── Site Info tab ──
+  function renderSiteTab(){
+    function sec(title){
+      var d=el('div','color:#8a8a8d;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;margin:18px 0 10px;padding-top:14px;border-top:1px solid #2a2a2c;');
+      d.textContent=title; return d;
+    }
+    function sField(key,label,placeholder,multi){
+      var i=inp(siteData[key]||'',placeholder,multi);
+      i.addEventListener('input',function(){siteData[key]=this.value;});
+      return fldWrap(label,i);
+    }
+    function aField(key,idx,label,placeholder,multi){
+      var arr=siteData[key]||[];
+      var i=inp(arr[idx]||'',placeholder,multi);
+      i.addEventListener('input',function(){
+        if(!siteData[key])siteData[key]=[];
+        while(siteData[key].length<=idx)siteData[key].push('');
+        siteData[key][idx]=this.value;
+      });
+      return fldWrap(label,i);
+    }
+
+    content.appendChild(sec('Identity'));
+    content.appendChild(sField('name','Full Name','Sanskar Bajaj'));
+
+    content.appendChild(sec('Taglines (shown in About mini-view)'));
+    content.appendChild(aField('taglines',0,'Tagline 1','e.g. IIIT Nagpur, CS & Engineering, CGPA 9.28'));
+    content.appendChild(aField('taglines',1,'Tagline 2','e.g. Built orchestration agents at Kookar AI'));
+    content.appendChild(aField('taglines',2,'Tagline 3','e.g. Shipping projects across full-stack and ML'));
+
+    content.appendChild(sec('Bio Paragraphs'));
+    content.appendChild(aField('bio',0,'Paragraph 1','First paragraph...',true));
+    content.appendChild(aField('bio',1,'Paragraph 2','Second paragraph...',true));
+    content.appendChild(aField('bio',2,'Paragraph 3','Third paragraph...',true));
+
+    content.appendChild(sec('Stats'));
+    content.appendChild(sField('cgpa','CGPA','9.28'));
+    content.appendChild(sField('gradYear','Graduation Year Range','2022-26'));
+
+    content.appendChild(sec('Social Links'));
+    content.appendChild(sField('github','GitHub URL','https://github.com/...'));
+    content.appendChild(sField('linkedin','LinkedIn URL','https://linkedin.com/in/...'));
+
+    content.appendChild(sec('Contact'));
+    content.appendChild(sField('email','Email','email@example.com'));
+    content.appendChild(sField('phone','Phone','+91 9000000000'));
+    content.appendChild(sField('location','Location','City, Country'));
+  }
+
+  // ── Shared save ──
   function doSave(){
     var cur=getAdmData()||{};
     cur.experience=expData;
     cur.projects=projData;
+    cur.siteInfo=siteData;
+    cur.achievements=achieveData;
     saveAdmData(cur);
     location.reload();
   }
 
+  // ── Experience modal ──
   function editExp(idx){
     var isNew=idx===null;
     var d=isNew?{id:'exp_'+Date.now(),role:'',company:'',period:'',logo:'',bullets:[['','']]}:JSON.parse(JSON.stringify(expData[idx]));
@@ -226,7 +319,7 @@ function showPanel(){
     card.appendChild(fldWrap('Period',periodInp));
     card.appendChild(fldWrap('Logo URL',logoInp));
     var bulletsWrap=el('div','margin-bottom:14px;');
-    bulletsWrap.appendChild(lbl('Bullets (bold part | rest of sentence)'));
+    bulletsWrap.appendChild(lbl('Bullets (bold keyword | rest of sentence)'));
     var bulletsList=el('div','display:flex;flex-direction:column;gap:8px;');
     bulletsWrap.appendChild(bulletsList);
     bulletsWrap.appendChild(mkBtn('+ Add Bullet','margin-top:8px;padding:5px 12px;background:#232325;border:1px dashed #2a2a2c;border-radius:6px;color:#8a8a8d;font-size:12px;cursor:pointer;',function(){bullets.push(['','']);renderBullets();}));
@@ -236,7 +329,7 @@ function showPanel(){
       bullets.forEach(function(b,bi){
         var row=el('div','display:flex;gap:6px;align-items:flex-start;');
         var cols=el('div','flex:1;display:flex;flex-direction:column;gap:4px;');
-        var boldI=inp(b[0],'Bold keyword');
+        var boldI=inp(b[0],'Bold keyword (e.g. 500+ users)');
         boldI.addEventListener('input',function(){bullets[bi][0]=this.value;});
         var restI=inp(b[1],': rest of sentence...');
         restI.addEventListener('input',function(){bullets[bi][1]=this.value;});
@@ -252,6 +345,7 @@ function showPanel(){
       d.role=roleInp.value; d.company=compInp.value; d.period=periodInp.value;
       d.logo=logoInp.value||null;
       d.bullets=bullets.filter(function(b){return b[0]||b[1];});
+      if(!d.bullets.length)d.bullets=[['','']];
       if(isNew)expData.push(d); else expData[idx]=d;
       modal.remove(); renderTab();
     }));
@@ -261,6 +355,7 @@ function showPanel(){
     modal.addEventListener('click',function(e){if(e.target===modal)modal.remove();});
   }
 
+  // ── Project modal ──
   function editProj(idx){
     var isNew=idx===null;
     var d=isNew?{id:'proj_'+Date.now(),title:'',problem:[],design:[],built:[],technologies:[],links:[]}:JSON.parse(JSON.stringify(projData[idx]));
@@ -292,6 +387,34 @@ function showPanel(){
         var parts=line.split('|'); return {name:parts[0].trim(),url:parts.slice(1).join('|').trim()};
       });
       if(isNew)projData.push(d); else projData[idx]=d;
+      modal.remove(); renderTab();
+    }));
+    rowBtns.appendChild(mkBtn('Cancel','padding:11px 18px;background:#232325;border:1px solid #2a2a2c;border-radius:8px;color:#8a8a8d;font-size:14px;cursor:pointer;',function(){modal.remove();}));
+    card.appendChild(rowBtns);
+    modal.appendChild(card); document.body.appendChild(modal);
+    modal.addEventListener('click',function(e){if(e.target===modal)modal.remove();});
+  }
+
+  // ── Achievement modal ──
+  function editAchieve(idx){
+    var isNew=idx===null;
+    var d=isNew?{title:'',organization:''}:JSON.parse(JSON.stringify(achieveData[idx]));
+    var modal=el('div','position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:100001;display:flex;align-items:center;justify-content:center;padding:16px;');
+    var card=el('div','background:#1a1a1c;border:1px solid #2a2a2c;border-radius:14px;width:100%;max-width:480px;padding:24px;font-family:Inter,system-ui,sans-serif;');
+    var h=el('div','color:#f2f2f2;font-weight:700;font-size:15px;margin-bottom:18px;');
+    h.textContent=isNew?'Add Achievement':'Edit Achievement';
+    card.appendChild(h);
+    var titleTA=inp(d.title,'e.g. Google Cloud Computing Foundations Certification',true);
+    titleTA.style.minHeight='60px';
+    card.appendChild(fldWrap('Title',titleTA));
+    var orgInp=inp(d.organization,'e.g. Google');
+    card.appendChild(fldWrap('Organization',orgInp));
+    var rowBtns=el('div','display:flex;gap:8px;margin-top:18px;');
+    rowBtns.appendChild(mkBtn(isNew?'Add':'Save','flex:1;padding:11px;background:#ff6d5a;border:none;border-radius:8px;color:#1a0a08;font-weight:700;font-size:14px;cursor:pointer;',function(){
+      d.title=titleTA.value.trim();
+      d.organization=orgInp.value.trim();
+      if(!d.title)return;
+      if(isNew)achieveData.push(d); else achieveData[idx]=d;
       modal.remove(); renderTab();
     }));
     rowBtns.appendChild(mkBtn('Cancel','padding:11px 18px;background:#232325;border:1px solid #2a2a2c;border-radius:8px;color:#8a8a8d;font-size:14px;cursor:pointer;',function(){modal.remove();}));
