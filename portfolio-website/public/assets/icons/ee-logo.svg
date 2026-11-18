@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Layer_1" data-name="Layer 1" viewBox="0 0 1000 1000">
+  <defs>
+    <style>.cls-1{fill:none;}.cls-2{clip-path:url(#clip-path);}.cls-3{clip-path:url(#clip-path-2);}.cls-4{fill:url(#linear-gradient);}.cls-5{fill:#fff;}</style>
+    <clipPath id="clip-path">
+      <rect class="cls-1" width="1000" height="1000"></rect>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <circle class="cls-1" cx="500" cy="500" r="500"></circle>
+    </clipPath>
+    <linearGradient id="linear-gradient" x1="5598.99" y1="5519.96" x2="5599.99" y2="5519.96" gradientTransform="matrix(0, 1000.07, 1000.07, 0, -5519846.4, -5599382.65)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#6acbe1"></stop>
+      <stop offset="0.12" stop-color="#6bc8df"></stop>
+      <stop offset="0.19" stop-color="#6ec0d8"></stop>
+      <stop offset="0.25" stop-color="#72b2cc"></stop>
+      <stop offset="0.3" stop-color="#799ebb"></stop>
+      <stop offset="0.34" stop-color="#8284a5"></stop>
+      <stop offset="0.39" stop-color="#8c648a"></stop>
+      <stop offset="0.43" stop-color="#993e6b"></stop>
+      <stop offset="0.44" stop-color="#9c3462"></stop>
+      <stop offset="0.73" stop-color="#c52a43"></stop>
+      <stop offset="1" stop-color="#ec2024"></stop>
+    </linearGradient>
+  </defs>
+  <title>EE_symbol_color</title>
+  <g id="Ansh_Systems_Symbol">
+    <g class="cls-2">
+      <g class="cls-3">
+        <rect class="cls-4" x="-45.61" y="-45.61" width="1091.22" height="1091.22" transform="translate(-45.61 949.79) rotate(-84.5)"></rect>
+      </g>
+      <g class="cls-2">
+        <path class="cls-5" d="M894.5,490.5s-126,142-384,188c0,0,38,217-73,254,0,0-85,19-62-208,0,0,1-7,4-8,0,0,2-1,2,2,0,0-1,166,53,164,0,0,67,3,73-204v-4s140-37,241-115c0,0,172-128,155-204,0,0-29-111-358,71v-7S866,196,955.5,307.5c0,0,55,67-61,183m-450-313s-84-136-142-107c0,0-91,36-57,279,0,0,18.78,135.42,84.85,235.26C163,593,103.5,695.5,103.5,695.5c-53,75,8,87,8,87,103,18,221-64,221-64,2-2,0-3,0-3-53,25-152,37-152,37-57,6-38-37-38-37,30-77,198-126,198-126s-119-229-50-434c0,0,22-68,82-8,0,0,93,88,135,233l10,41s4,2,5-1c0,0-6-132-78-243m-110,553s-1,4,3,4c0,0,142-105,203-315,0,0,3-8-7-7,0,0-64,201-199,318M527.11,334.07v0a93.42,93.42,0,0,1,5.9,31.53,64.87,64.87,0,0,1-1,11.6,1.5,1.5,0,1,0,3,.54,68.43,68.43,0,0,0,1-12.14,96.16,96.16,0,0,0-6.13-32.7,1.5,1.5,0,1,0-2.78,1.14m23.65,49.25,0-.06a104.44,104.44,0,0,1,10.12-12.59c5.85-6.25,13.75-13,22.06-15.75a1.5,1.5,0,1,0-.94-2.84,46.28,46.28,0,0,0-13.19,7.29c-12.07,9.21-20.54,22.24-20.6,22.31a1.5,1.5,0,1,0,2.52,1.64"></path>
+      </g>
+    </g>
+  </g>
+</svg>
